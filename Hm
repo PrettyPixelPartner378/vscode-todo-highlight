@@ -1,0 +1,48 @@
+{% schema %}
+{
+  "name": "Dynamic Graphic & Text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome to Our Store!"
+    },
+    {
+      "type": "textarea",
+      "id": "sub_text",
+      "label": "Sub Text",
+      "default": "Customize this section to fit your brand."
+    },
+    {
+      "type": "color",
+      "id": "graphic_color",
+      "label": "Graphic Color",
+      "default": "#5c6ac4"
+    },
+    {
+      "type": "range",
+      "id": "circle_size",
+      "label": "Graphic Size",
+      "min": 50,
+      "max": 300,
+      "step": 1,
+      "default": 120
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dynamic Graphic & Text"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="dynamic-graphic-text" style="text-align:center; padding: 40px 0;">
+  <h2>{{ section.settings.heading }}</h2>
+  <p style="margin-bottom: 40px;">{{ section.settings.sub_text }}</p>
+  <svg width="{{ section.settings.circle_size }}" height="{{ section.settings.circle_size }}" viewBox="0 0 120 120" style="display:block;margin:0 auto;">
+    <circle cx="60" cy="60" r="50" fill="{{ section.settings.graphic_color }}" />
+    <text x="60" y="65" text-anchor="middle" font-size="24" fill="#fff" font-family="Arial" dy=".3em">SVG</text>
+  </svg>
+</section>
